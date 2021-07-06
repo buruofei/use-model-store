@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/**
+ * 引入 useModelPlugin
+ */
+import composeRootApp from './useModelPlugin';
+
+const RootApp = composeRootApp(<App />);
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  RootApp,
   document.getElementById('root')
 );
 
