@@ -4,13 +4,14 @@ import isEqual from 'lodash/isEqual';
 import storeContext from './helpers/storeContext';
 
 export function useModel(namespace, updater) {
+
   const dispatcher = useContext(storeContext);
   const updaterRef = useRef(updater);
   updaterRef.current = updater;
   const [state, setState] = useState(() =>{
     updaterRef?.current ? updaterRef.current(dispatcher.data[namespace]) : dispatcher.data[namespace];
   });
-  debugger;
+
   const stateRef = useRef(state);
   stateRef.current = state;
 
